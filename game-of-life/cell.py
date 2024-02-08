@@ -6,7 +6,7 @@ class Cell(pygame.sprite.Sprite):
         super().__init__()
         if state is None:
             self.r = random()
-            if self.r <= 0.75: self.state = 1
+            if self.r <= 0.5: self.state = 1
             else: self.state = 0
         else:
             self.state = state
