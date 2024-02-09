@@ -10,11 +10,14 @@ class Cell(pygame.sprite.Sprite):
             else: self.state = 0
         else:
             self.state = state
+        self.step = 0
 
     def draw(self, surface, x, y, resolution):
+        if self.step < 255: self.step += 1
         if self.state == 1:
-            color = (0, 0, 0)  # Черный цвет для заполненной клетки
+            color = (self.step, 0, 0)  # Черный цвет для заполненной клетки
         else:
+            self.step = 0
             color = (255, 255, 255)  # Белый цвет для пустой клетки
         pygame.draw.rect(surface, color, (x, y, resolution, resolution))
 
