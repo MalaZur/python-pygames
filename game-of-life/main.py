@@ -30,12 +30,12 @@ pygame.init()
 
 # Константы/Constants
 WIDTH = 1200
-HEIGHT = 900
+HEIGHT = 600
 FPS = 60
-
-cols = int(WIDTH/10)
-rows = int(HEIGHT/10)
 resolution = 10
+
+cols = int(WIDTH/resolution)
+rows = int(HEIGHT/resolution)
 
 
 
@@ -45,7 +45,7 @@ resolution = 10
 
 # Создание окна/Window creating
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Doodle Jump")
+pygame.display.set_caption("Game of Life")
 clock = pygame.time.Clock()
 
 grid = make2DArray(cols, rows)
@@ -66,7 +66,6 @@ def main():
     while running:
         # Частота обновления экрана/Screen refresh rate
         clock.tick(FPS)
-    
         # События/Events
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -80,9 +79,8 @@ def main():
                             cell = Cell()
                             cells.add(cell)
                             grid[i][j] = cell
-                    print(countNeighbors(grid, 0,0))
-                    print(len(cells))
-                    
+
+            
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:  # Проверяем, что была нажата левая кнопка мыши
                 mouse_x, mouse_y = event.pos[0] // resolution, event.pos[1] // resolution  # Координаты мыши в координатах клеток
                 for i in range(-1, 2):
@@ -120,7 +118,7 @@ def main():
         for i in range(cols):
             for j in range(rows):
                 grid[i][j].state = next_grid[i][j]
-                grid[i][j].draw(screen, i*10, j*10, resolution-1)
+                grid[i][j].draw(screen, i*resolution, j*resolution, resolution-1)
                     
 
         # Обновление экрана/Screen Refresh
