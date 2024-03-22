@@ -1,3 +1,7 @@
+#Made similar to this video: https://www.youtube.com/watch?v=BZUdGqeOD0w&ab_channel=TheCodingTrain
+#However, implemented using pygame
+
+
 import pygame
 import sys
 
