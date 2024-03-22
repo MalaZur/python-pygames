@@ -11,8 +11,8 @@ from particle import Particle
 pygame.init()
 
 # Константы/Constants
-WIDTH = 1000
-HEIGHT = 1000
+WIDTH = 600
+HEIGHT = 600
 FPS = 60
 
 scl = 40
@@ -20,7 +20,7 @@ scl = 40
 rows = HEIGHT//scl
 cols = WIDTH//scl
 
-
+noise_detail(5)
 
 
 
@@ -34,18 +34,18 @@ clock = pygame.time.Clock()
 
 
 def main():
-    
+    screen.fill((255, 255, 255))
     inc = 0.2
     zoff = 0
     flowfield = [Vector(0, 0) for _ in range(cols * rows)]
 
     
     particles = []
-    for i in range(400):
+    for i in range(100):
         p = Particle(scl)
         particles.append(p)
 
-    screen.fill((255, 255, 255))
+    
 
     running = True
     while running:
@@ -60,9 +60,10 @@ def main():
                 
     
         ## Рендеринг/Rendering
+        
         #If you want to see each vector that affects the movement of particles, uncomment pygame.draw.line and put screen.fill into loop.
-         
-        noise_detail(5)
+        #screen.fill((255, 255, 255))
+        
         yoff = 0
         for y in range(rows):
             xoff = 0

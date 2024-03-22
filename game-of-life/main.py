@@ -30,7 +30,7 @@ pygame.init()
 
 # Константы/Constants
 WIDTH = 1200
-HEIGHT = 600
+HEIGHT = 800
 FPS = 60
 resolution = 10
 
