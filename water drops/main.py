@@ -6,10 +6,10 @@ import pygame
 import sys
 
 # Константы
-WIDTH = 400
-HEIGHT = 400
+WIDTH = 800
+HEIGHT = 800
 FPS = 60
-res = 4
+res = 8
 
 cols = HEIGHT//res
 rows = WIDTH//res
@@ -40,6 +40,9 @@ def main():
             elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 mouse_x, mouse_y = event.pos
                 previous[mouse_x//res][mouse_y//res] = 255
+            elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 3:
+                mouse_x, mouse_y = event.pos
+                previous[mouse_x//res][mouse_y//res] = 0
 
         # Обновление спрайтов
         for x in range(1, rows - 1):
